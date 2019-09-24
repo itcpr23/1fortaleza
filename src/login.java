@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
  */
 public class login extends javax.swing.JFrame {
     login_class b = new login_class();
-
     /**
      * Creates new form login
      */
@@ -106,9 +105,9 @@ public class login extends javax.swing.JFrame {
             pw.setText("");
             pw.requestFocus();
         }else{
-            mainpage mn = new mainpage();
-            mn.setVisible(true);
-            mn.setLocationRelativeTo(null);
+           mainpage mn= new mainpage();
+           mn.setVisible(true);
+           mn.setLocationRelativeTo(null);
             this.setVisible(false);
         }
         
@@ -153,7 +152,6 @@ public class login extends javax.swing.JFrame {
         register.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         register.setMinimumSize(new java.awt.Dimension(540, 500));
         register.setUndecorated(true);
-        register.setPreferredSize(new java.awt.Dimension(540, 500));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 51));
 
