@@ -83,6 +83,7 @@ login log = new login();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         wel = new javax.swing.JLabel();
 
         addPro.setMinimumSize(new java.awt.Dimension(580, 440));
@@ -240,6 +241,13 @@ login log = new login();
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("LIST OF PRODUCTS");
 
+        jButton5.setText("DELETE PRODUCT");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -250,6 +258,8 @@ login log = new login();
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31))
@@ -267,7 +277,9 @@ login log = new login();
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -291,7 +303,7 @@ login log = new login();
                 .addComponent(wel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -344,6 +356,46 @@ this.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    int selRow = protable.getSelectedRow();
+        if (selRow== -1){
+            JOptionPane.showMessageDialog(protable, 
+                    "Please Select Name From Table To Remove." , "Message",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            String name = protable.getValueAt(selRow,1).toString();
+            int opt = JOptionPane.showConfirmDialog(protable, "ARE YOU SURE YOU WANT TO DELETE\n"
+                    +name,"WARNING", JOptionPane.YES_OPTION);
+            if( opt== JOptionPane.YES_OPTION){
+                int a = JOptionPane.showConfirmDialog(protable," THIS WILL DELETE\n"
+                        +name,"Confirmation",JOptionPane.ERROR_MESSAGE, JOptionPane.OK_CANCEL_OPTION );
+                if (a== JOptionPane.OK_OPTION){
+                    int ii = Integer.parseInt(protable.getValueAt(selRow, 0).toString());
+                    try{
+                         Class.forName("com.mysql.jdbc.Driver");
+                         Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/account_registration?", "root", "");
+                  String sql = "Delete from product where product_id = ?; ";
+                  PreparedStatement pstmt = con.prepareStatement(sql);
+                  pstmt.setInt(1, ii);
+                  pstmt.executeUpdate();
+                  
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(mainpage.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(mainpage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(protable, "Product_name" +name+ "DELETED");
+                }else{
+                
+            }
+        }
+            else{
+                
+            }   
+    }   
+        showData();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +421,7 @@ this.setVisible(false);
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
