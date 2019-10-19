@@ -101,7 +101,7 @@ login log = new login();
         propri = new javax.swing.JFormattedTextField();
         inbtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        sabtn = new javax.swing.JButton();
+        savbtn = new javax.swing.JButton();
         proid = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -157,11 +157,11 @@ login log = new login();
             }
         });
 
-        sabtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        sabtn.setText("SAVE");
-        sabtn.addActionListener(new java.awt.event.ActionListener() {
+        savbtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        savbtn.setText("SAVE");
+        savbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sabtnActionPerformed(evt);
+                savbtnActionPerformed(evt);
             }
         });
 
@@ -173,7 +173,7 @@ login log = new login();
                 .addGap(235, 235, 235)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(inbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sabtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(savbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 244, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,7 +216,7 @@ login log = new login();
                 .addGap(29, 29, 29)
                 .addComponent(inbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(savbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -394,7 +394,7 @@ login log = new login();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-addPro.setVisible(true);this.setVisible(false); addPro.setLocationRelativeTo(null);sabtn.setVisible(false);inbtn.setVisible(true);
+addPro.setVisible(true);this.setVisible(false); addPro.setLocationRelativeTo(null);savbtn.setVisible(false);inbtn.setVisible(true);proqu.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -496,10 +496,10 @@ if(row==-1){
     addPro.setVisible(true);
     }
 }
-addPro.setVisible(true);this.setVisible(false);addPro.setLocationRelativeTo(null);inbtn.setVisible(false);sabtn.setVisible(true);proqu.setEnabled(false);       // TODO add your handling code here:
+addPro.setVisible(true);this.setVisible(false);addPro.setLocationRelativeTo(null);inbtn.setVisible(false);savbtn.setVisible(true);proqu.setEnabled(false);       // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void sabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sabtnActionPerformed
+    private void savbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savbtnActionPerformed
 int id = Integer.parseInt(proid.getText());
 String prdname = pronm.getText();
 String prqu = proqu.getToolTipText();
@@ -531,7 +531,7 @@ try{
         Logger.getLogger(mainpage.class.getName()).log(Level.SEVERE, null, ex);
     }
 // TODO add your handling code here:
-    }//GEN-LAST:event_sabtnActionPerformed
+    }//GEN-LAST:event_savbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -575,7 +575,7 @@ try{
     private javax.swing.JFormattedTextField propri;
     private javax.swing.JSpinner proqu;
     private javax.swing.JTable protable;
-    private javax.swing.JButton sabtn;
+    private javax.swing.JButton savbtn;
     private javax.swing.JTextField searchprod;
     private javax.swing.JLabel wel;
     // End of variables declaration//GEN-END:variables
