@@ -429,7 +429,7 @@ int prodId =0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-addPro.setVisible(true);this.setVisible(false); addPro.setLocationRelativeTo(null);savbtn.setVisible(false);inbtn.setVisible(true);proqu.setEnabled(true);
+addPro.setVisible(true); addPro.setLocationRelativeTo(this);savbtn.setVisible(false);inbtn.setVisible(true);proqu.setEnabled(true);qtybtn.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -532,7 +532,7 @@ if(row==-1){
     this.setVisible(false);
     addPro.setVisible(true);
 }
-addPro.setVisible(true);this.setVisible(false);addPro.setLocationRelativeTo(null);inbtn.setVisible(false);savbtn.setVisible(true);proqu.setEnabled(false);       // TODO add your handling code here:
+addPro.setVisible(true);this.setVisible(false);addPro.setLocationRelativeTo(null);inbtn.setVisible(false);savbtn.setVisible(true);proqu.setEnabled(false);qtybtn.setVisible(false);       // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void savbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savbtnActionPerformed
