@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  * @author laurence
  */
 public class pro_class {
+    connection c = new connection();
     public int addPro(String product_name, int quantity, String price){
         int c = 0;
         String sql = "INSERT INTO product VALUES(null,?,?,?);";
@@ -38,4 +39,31 @@ public class pro_class {
         }
         return c;
     }
+
+
+
+public int addQuantity(int id, Object quantity){
+    int x=0;
+        try {
+            Class.forName(c.driver);
+            Connection con = DriverManager.getConnection(c.url,c.uname,c.pword);
+            PreparedStatement ps = con.prepareStatement("update product set quantity = (quantity + ?) where product_id = ?");
+           ps.setObject(1, quantity);
+            ps.setInt(2, id);
+            x =  ps.executeUpdate();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(pro_class.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(pro_class.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    
+    return x;
 }
+
+
+}
+
+
+
+

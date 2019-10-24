@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 
 
 public class register_class {
+    
     public int list(String fname, String lname, String uname, String password){
         int opt=0;  
        String sql = "INSERT INTO accounttable VALUES(?,?,?,md5(?));";
