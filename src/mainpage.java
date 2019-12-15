@@ -34,11 +34,12 @@ int prodId =0;
         String prodname = searchprod.getText();
         
         try{
-            String sql = "select * from product where PRODUCT_NAME like ?;";
+            String sql = "select * from product where PRODUCT_ID like ? or PRODUCT_NAME like ?;";
            Class.forName("com.mysql.jdbc.Driver");
            Connection conn = (Connection)DriverManager.getConnection("jdbc:mysql://localhost/account_registration?", "root", "");
            PreparedStatement pstmt = conn.prepareStatement(sql);
            pstmt.setString(1, "%"+prodname+"%");
+           pstmt.setString(2, "%"+prodname+"%");
            ResultSet rs = pstmt.executeQuery();
            DefaultTableModel tbl = (DefaultTableModel)protable.getModel();
            tbl.setRowCount(0);
